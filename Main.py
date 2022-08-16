@@ -58,10 +58,10 @@ class Solution:
         # Write code here
         s=""
         s1=""
-        for i in self.next:#range(l-1,-1,-1):
-            s=s+first_list[i]
-        for j in self.next:#range(l1-1,-1,-1):
-            s1=s1+second_list[i]
+        for i in first_list:
+            s=str(i)+s
+        for j in second_list:
+            s1=str(j)+s1
         a=int(s)
         b=int(s1)
         c=a+b
