@@ -60,7 +60,7 @@ class Solution:
         s1=""
         l=len(first_list)
         l1=len(second_list)
-        for i in range(l-1,-1,-1):
+        for i in self.next:#range(l-1,-1,-1):
             s=s+first_list[i]
         for j in range(l1-1,-1,-1):
             s1=s1+second_list[i]
