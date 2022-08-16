@@ -42,8 +42,12 @@ class LinkedList:
         It prints all the elements of list.
         """
         # write code here
-        for i in self.next:
-            print(self.data)
+        current = self.head
+        while current is not None:
+            print(current.data)
+            current = current.next
+            for i in self.next:
+                print(self.data)
 
 class Solution:
     """
