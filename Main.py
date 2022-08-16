@@ -74,7 +74,29 @@ class Solution:
         c=a+b
         third_list.insert_at_end(c)
         return third_list
-
+        
+        head = None
+        temp = None
+        carry = 0
+        while l1 is not None or l2 is not None:
+            s= carry
+            if l1 is not None:
+                s+= l1.val
+                l1 = l1.next
+            if l2 is not None:
+                s+= l2.val
+                l2 = l2.next
+            node = ListNode(sum_valu% 10)
+            carry = s// 10
+            if temp is None:
+                temp = head = node
+            else:
+                temp.next = node
+                temp = temp.next
+        if carry > 0:
+            temp.next = ListNode(carry)
+        return head
+    
 # Do not edit the following code      
 # Create an instance for LinkedList
 first_list = LinkedList()
