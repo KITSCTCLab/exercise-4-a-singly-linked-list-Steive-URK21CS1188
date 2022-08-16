@@ -12,7 +12,6 @@ class Node:
         self.data = data
         self.next = next
 
-
 class LinkedList:
     """
     Provide necessary documentation
@@ -29,13 +28,22 @@ class LinkedList:
         :param data: integer data that will be used to create a node
         """
         # Write code here
-
+        newNode = Node(data)
+        if(self.head):
+            current = self.head
+            while(current.next):
+                current = current.next
+            current.next = newNode
+        else:
+            self.head = newNode  
+            
     def status(self):
         """
         It prints all the elements of list.
         """
         # write code here
-
+        for i in self.next:
+            print(self.data)
 
 class Solution:
     """
@@ -48,8 +56,18 @@ class Solution:
         :return: returns the sum as a linked list
         """
         # Write code here
-        
-        
+        s=""
+        s1=""
+        l=len(first_list)
+        l1=len(second_list)
+        for i in range(l-1,-1,-1):
+            s=s+first_list[i]
+        for j in range(l1-1,-1,-1):
+            s1=s1+second_list[i]
+        a=int(s)
+        b=int(s1)
+        c=a+b
+        return c
 
 # Do not edit the following code      
 # Create an instance for LinkedList
