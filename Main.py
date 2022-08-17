@@ -1,21 +1,17 @@
 from typing import Optional
 
-
 class Node:
-    """
-    Provide necessary documentation
-    """
+
     def __init__(self, data=None, next=None):
         """
-        Provide necessary documentation
+        Initialises the Node with given attributes
         """
         self.data = data
         self.next = next
 
+
 class LinkedList:
-    """
-    Provide necessary documentation
-    """
+
     def __init__(self):
         """
         Initialize the head
@@ -23,66 +19,43 @@ class LinkedList:
         self.head = None
 
     def insert_at_end(self, data):
-        """
-        Insert node at end of the list
-        :param data: integer data that will be used to create a node
-        """
-        # Write code here
-        newNode = Node(data)
-        if(self.head):
-            current = self.head
-            while(current.next):
-                current = current.next
-            current.next = newNode
-        else:
-            self.head = newNode  
-            
-    def status(self):
-        """
-        It prints all the elements of list.
-        """
-        # write code here
+        new = Node(data, None)
         current = self.head
-        while current is not None:
-            print(current.data)
+        if current is None:
+            self.head = new
+        else:
+            while current.next is not None:
+                current = current.next
+            current.next = new
+
+    def status(self):
+        elements = []
+        current = self.head
+        while current:
+            elements.append(current.data)
             current = current.next
-            for i in self.next:
-                print(self.data)
+        print(elements)
+
 
 class Solution:
-    """
-    Provide necessary documentation
-    """
+
     def addTwoNumbers(self, first_list: Optional[LinkedList], second_list: Optional[LinkedList]) -> Optional[LinkedList]:
-        """
-        :param first_list: Linkedlist with non-negative integers
-        :param second_list: Linkedlist with non-negative integers
-        :return: returns the sum as a linked list
-        """
-        # Write code here
-        
-        head = None
-        temp = None
-        carry = 0
-        while l1 is not None or l2 is not None:
-            s= carry
-            if l1 is not None:
-                s+= l1.val
-                l1 = l1.next
-            if l2 is not None:
-                s+= l2.val
-                l2 = l2.next
-            node = ListNode(sum_valu% 10)
-            carry = s// 10
-            if temp is None:
-                temp = head = node
-            else:
-                temp.next = node
-                temp = temp.next
-        if carry > 0:
-            temp.next = ListNode(carry)
-        return head
-    
+        result = self.get_num(first_list) + self.get_num(second_list)
+        sum_list = LinkedList()
+        for digit in list(map(int, str(result)[::-1])):
+            sum_list.insert_at_end(digit)
+        return sum_list
+
+    def get_num(self, l: Optional[LinkedList]) -> int:
+        curr = l.head
+        if curr is None:
+            return 0
+        num = ""
+        while curr is not None:
+            num = str(curr.data) + num
+            curr = curr.next
+        return int(num)
+
 # Do not edit the following code      
 # Create an instance for LinkedList
 first_list = LinkedList()
