@@ -60,20 +60,6 @@ class Solution:
         :return: returns the sum as a linked list
         """
         # Write code here
-        third_list=LinkedList()
-        f=Optional[first_list]
-        s=Optional[second_list]
-        s=""
-        s1=""
-        for i in f:
-            s=str(i)+s
-        for j in s:
-            s1=str(j)+s1
-        a=int(s)
-        b=int(s1)
-        c=a+b
-        third_list.insert_at_end(c)
-        return third_list
         
         head = None
         temp = None
